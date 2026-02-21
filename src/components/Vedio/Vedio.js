@@ -6,10 +6,11 @@ import styles from "./vedio.module.scss";
 export default function Vedio() {
     const videoRef = useRef(null);
     const audioRef = useRef(null);
+    const basePath = '/repo';
 
     useEffect(() => {
         
-        audioRef.current = new Audio('/music.mp3'); 
+        audioRef.current = new  Audio(`${basePath}/music.mp3`); 
         audioRef.current.loop = true;
         audioRef.current.volume = 0.2; 
 
@@ -58,7 +59,7 @@ export default function Vedio() {
                 <div className={styles.container__left}>
                     <video
                         ref={videoRef}
-                        src="/videoplayback.mp4"
+                        src={`${basePath}/videoplayback.mp4`}
                         loop
                         muted
                         playsInline
